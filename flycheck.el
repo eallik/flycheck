@@ -4070,11 +4070,12 @@ See URL `http://pypi.python.org/pypi/flake8'."
   :error-patterns
   ((error line-start
           (file-name) ":" line ":" (optional column ":") " "
-          (message "E" (one-or-more digit) (zero-or-more not-newline))
+          (message "F"                  ; Pyflakes in Flake8 >= 2.0
+                   (one-or-more digit) (zero-or-more not-newline))
           line-end)
    (warning line-start
             (file-name) ":" line ":" (optional column ":") " "
-            (message (or "F"            ; Pyflakes in Flake8 >= 2.0
+            (message (or "E"            ; pep8 in Flake8 >= 2.0
                          "W"            ; Pyflakes in Flake8 < 2.0
                          "C"            ; McCabe in Flake >= 2.0
                          "N")           ; pep8-naming in Flake8 >= 2.0
